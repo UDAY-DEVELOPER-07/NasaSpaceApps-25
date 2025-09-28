@@ -4,7 +4,7 @@ export default function ThrustControl({ value, onSelect, options = [-5, -2, 0, 2
   const isActive = (v) => v === value;
   return (
     <div className="p-4 bg-black/50 rounded-xl border border-white/10 text-white">
-      <h3 className="text-center text-2xl mb-3">Vertical Trim</h3>
+      <h3 className="text-center text-2xl mb-3">BUOYANCY</h3>
       <div className="flex items-center justify-center gap-2 flex-wrap">
         {options.map((opt) => (
           <button

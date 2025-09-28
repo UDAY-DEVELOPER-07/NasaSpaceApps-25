@@ -42,7 +42,70 @@ export default function AetherDashboard() {
       </div>
 
       <div className="grid lg:grid-cols-3 gap-3 max-w-8xl backdrop-blur-2xl bg-transparent mx-auto">
-        <CardContainer className="inter-var border-1 rounded-2xl  " onClick={handlemousenter} >
+
+
+        <CardContainer className="inter-var border-1 rounded-2xl ">
+          <CardBody className="bg-transparent  relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+            <CardItem
+              translateZ="50"
+              className="text-xl font-bold text-gray-200 dark:text-white"
+            >
+              VIRTUAL VIEW
+            </CardItem>
+
+            <CardItem translateZ="100" className="w-full mt-4">
+              <img
+                src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHV4MHVyanczbmx3OWFqbWN0NWd1ZGpkdXZwYnVpYXdyYjdsZ2l4bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RnDkcqAgnA2E1Lw3z2/giphy.gif"
+                height="1000"
+                width="1000"
+                className="h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl"
+                alt="thumbnail"
+                
+              />
+            </CardItem>
+            <div className="flex justify-between items-center mt-10">
+              <CardItem
+                translateZ={20}
+                as="button"
+                className="w-full h-10 rounded-2xl bg-white text-black hover:bg-gray-100"
+                onClick={handlemousenter2}
+              >
+                Launch Simulator
+              </CardItem>
+            </div>
+          </CardBody>
+        </CardContainer>
+        <CardContainer className="inter-var border-1 rounded-2xl ">
+          <CardBody className="bg-transparent  relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+            <CardItem
+              translateZ="50"
+              className="text-xl font-bold text-gray-200 dark:text-white"
+            >
+              NBL SIMULATOR
+            </CardItem>
+
+            <CardItem translateZ="100" className="w-full mt-4">
+              <img
+                src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTRjYXByMzVtaGhvenpkNGs3NGQ0YWI2ODQ2NjhyemJ4YXpwMWZjaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uO61rSmhBK3v2Tbovq/giphy.gif"
+                height="1000"
+                width="1000"
+                className="h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl"
+                alt="thumbnail"
+              />
+            </CardItem>
+            <div className="flex justify-between items-center mt-10">
+              <CardItem
+                translateZ={20}
+                as="button"
+                className="w-full h-10 rounded-2xl bg-white text-black hover:bg-gray-100"
+                onClick={handlemousenter3}
+              >
+                Play With Simulator
+              </CardItem>
+            </div>
+          </CardBody>
+        </CardContainer>
+                <CardContainer className="inter-var border-1 rounded-2xl  " onClick={handlemousenter} >
           <CardBody className="bg-transparent  relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
             <CardItem
               translateZ="50"
@@ -81,88 +144,9 @@ export default function AetherDashboard() {
             </div>
           </CardBody>
         </CardContainer>
-
-        <CardContainer className="inter-var border-1 rounded-2xl ">
-          <CardBody className="bg-transparent  relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
-            <CardItem
-              translateZ="50"
-              className="text-xl font-bold text-gray-200 dark:text-white"
-            >
-              SPACEWALK SIMULATOR
-            </CardItem>
-
-            <CardItem translateZ="100" className="w-full mt-4">
-              <img
-                src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHV4MHVyanczbmx3OWFqbWN0NWd1ZGpkdXZwYnVpYXdyYjdsZ2l4bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RnDkcqAgnA2E1Lw3z2/giphy.gif"
-                height="1000"
-                width="1000"
-                className="h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl"
-                alt="thumbnail"
-              />
-            </CardItem>
-            <div className="flex justify-between items-center mt-10">
-              <CardItem
-                translateZ={20}
-                as="button"
-                className="w-full h-10 rounded-2xl bg-white text-black hover:bg-gray-100"
-                onClick={handlemousenter2}
-              >
-                Launch Simulator
-              </CardItem>
-            </div>
-          </CardBody>
-        </CardContainer>
-        <CardContainer className="inter-var border-1 rounded-2xl ">
-          <CardBody className="bg-transparent  relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
-            <CardItem
-              translateZ="50"
-              className="text-xl font-bold text-gray-200 dark:text-white"
-            >
-              NBL SIMULATOR
-            </CardItem>
-
-            <CardItem translateZ="100" className="w-full mt-4">
-              <img
-                src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHV4MHVyanczbmx3OWFqbWN0NWd1ZGpkdXZwYnVpYXdyYjdsZ2l4bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RnDkcqAgnA2E1Lw3z2/giphy.gif"
-                height="1000"
-                width="1000"
-                className="h-60 w-full object-contain rounded-xl group-hover/card:shadow-xl"
-                alt="thumbnail"
-              />
-            </CardItem>
-            <div className="flex justify-between items-center mt-10">
-              <CardItem
-                translateZ={20}
-                as="button"
-                className="w-full h-10 rounded-2xl bg-white text-black hover:bg-gray-100"
-                onClick={handlemousenter3}
-              >
-                Play With Simulator
-              </CardItem>
-            </div>
-          </CardBody>
-        </CardContainer>
       </div>
 
-      <div className="flex justify-evenly w-[100%] space-x-6 mt-9">
-        <Button
-          variant="outline"
-          className="px-8 py-3 border bg-white text-black hover:bg-gray-100"
-          onClick={() => handleModuleClick("mission-log")}
-        >
-          <BookOpen className="w-5 h-5 mr-2" />
-          MISSION LOG
-        </Button>
-
-        <Button
-          variant="outline"
-          className="px-8 py-3 border bg-white text-black hover:bg-gray-100"
-          onClick={() => handleModuleClick("astronaut-quiz")}
-        >
-          <Brain className="w-5 h-5 mr-2" />
-          ASTRONAUT QUIZ
-        </Button>
-      </div>
+      
     </div>
   );
 }

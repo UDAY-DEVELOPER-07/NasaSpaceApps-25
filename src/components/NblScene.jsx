@@ -77,7 +77,7 @@ function SceneCore({ trim, currentTaskIndex = 0, onNeutral, onReachHatch, onRail
 
   // Input state
   const keys = useRef({});
-  const mouseDownRef = useRef(false); // hold left mouse to look
+  const mouseDownRef = useRef(false); 
 
   // Prompts and debug
   const [prompt, setPrompt] = useState("");
@@ -355,13 +355,13 @@ function SceneCore({ trim, currentTaskIndex = 0, onNeutral, onReachHatch, onRail
       <Environment preset="city" />
 
       {/* HUD */}
-      {!mouseDownRef.current && (
+      {/* {!mouseDownRef.current && (
         <Html>
           <div style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(0,0,0,0.5)', padding: '8px 12px', borderRadius: 8, fontSize: 12 }}>
             Hold Left Mouse to look • Scroll to zoom
           </div>
         </Html>
-      )}
+      )} */}
       {prompt && (
         <Html>
           <div style={{ position: 'absolute', bottom: 18, left: '50%', transform: 'translateX(-50%)', background: 'rgba(0,0,0,0.55)', padding: '10px 14px', borderRadius: 10, fontSize: 14 }}>
@@ -369,13 +369,13 @@ function SceneCore({ trim, currentTaskIndex = 0, onNeutral, onReachHatch, onRail
           </div>
         </Html>
       )}
-      {objectiveText && (
+      {/* {objectiveText && (
         <Html>
           <div style={{ position: 'absolute', top: 12, left: 12, right: 12, maxWidth: '50%', background: 'rgba(0,0,0,0.45)', padding: '10px 14px', borderRadius: 10, fontSize: 13 }}>
             Next: {objectiveText}
           </div>
         </Html>
-      )}
+      )} */}
     </>
   );
 }
