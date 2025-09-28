@@ -1,61 +1,52 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import * as THREE from "three";
+import React, { useEffect, useRef } from "react";
 
-function VideoSphere({ videoUrl }) {
-  const meshRef = useRef();
-  const videoRef = useRef(null);
-  const [texture, setTexture] = useState(null);
+export default function AetherDashboard() {
+  const playerRef = useRef(null);
 
   useEffect(() => {
-    const video = document.createElement("video");
-    video.src = videoUrl;
-    video.crossOrigin = "anonymous";
-    video.loop = false;
-    video.muted = true;
-    video.playsInline = true;
-    video.preload = "auto";
-
-    // Only create texture after metadata loads
-    video.addEventListener("loadeddata", () => {
-      const videoTexture = new THREE.VideoTexture(video);
-      videoTexture.wrapS = THREE.ClampToEdgeWrapping;
-      videoTexture.wrapT = THREE.ClampToEdgeWrapping;
-      videoTexture.minFilter = THREE.LinearFilter;
-      videoTexture.magFilter = THREE.LinearFilter;
-      videoTexture.format = THREE.RGBFormat;
-      setTexture(videoTexture);
-    });
-
-    // Must be started by user interaction
-    const startVideo = () => {
-      video.play().catch((err) => console.warn("Autoplay blocked:", err));
-      window.removeEventListener("click", startVideo);
-    };
-    window.addEventListener("click", startVideo);
-
-    videoRef.current = video;
-  }, [videoUrl]);
-
-  // Keep texture updated each frame
-  useFrame(() => {
-    if (texture) {
-      texture.needsUpdate = true;
+    // Prevent loading API multiple times
+    if (!window.YT) {
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
     }
-  });
 
-  // Scroll scrubbing
-  useEffect(() => {
+    // Wait until API is ready
+    window.onYouTubeIframeAPIReady = () => {
+      if (playerRef.current) return; // already initialized
+
+      playerRef.current = new window.YT.Player("yt-player", {
+        videoId: "53yrefq77xE", // 360° video ID
+        playerVars: {
+          autoplay: 1,
+          mute: 1, // ✅ required for autoplay
+          controls: 0,
+          disablekb: 1,
+          modestbranding: 1,
+          rel: 0,
+          playsinline: 1,
+        },
+        events: {
+          onReady: (event) => {
+            event.target.mute();
+            event.target.playVideo();
+          },
+        },
+      });
+    };
+
     const handleWheel = (e) => {
-      const video = videoRef.current;
-      if (video && video.duration) {
-        const delta = e.deltaY > 0 ? 0.5 : -0.5;
-        let newTime = Math.max(0, Math.min(video.currentTime + delta, video.duration));
-        video.currentTime = newTime;
-        video.pause();
+      if (playerRef.current && playerRef.current.getCurrentTime) {
+        const currentTime = playerRef.current.getCurrentTime();
+        const change = e.deltaY > 0 ? 0.5 : -0.5; // scroll = scrub
+        const newTime = Math.max(currentTime + change, 0);
+
+        playerRef.current.seekTo(newTime, true);
+
+        // ✅ Instead of play→pause, just pause so the frame updates
+        playerRef.current.pauseVideo();
       }
       e.preventDefault();
     };
@@ -65,33 +56,15 @@ function VideoSphere({ videoUrl }) {
   }, []);
 
   return (
-    <mesh ref={meshRef}>
-      <sphereGeometry args={[500, 60, 40]} />
-      {texture && <meshBasicMaterial map={texture} side={THREE.BackSide} />}
-    </mesh>
-  );
-}
-
-export default function AetherDashboard() {
-  return (
-    <div style={{ height: "100vh", width: "100vw" }}>
-      <Canvas camera={{ position: [0, 0, 0.1], fov: 75 }}>
-        <VideoSphere videoUrl="https://drive.google.com/uc?export=download&id=1SedbAoiOa3HeqjU856paJ0Uf10zWG0jV" />
-        <OrbitControls enableZoom={false} enablePan={false} rotateSpeed={0.5} />
-      </Canvas>
+    <div style={{ height: "100vh", width: "100vw", overflow: "hidden" }}>
       <div
+        id="yt-player"
         style={{
-          position: "absolute",
-          top: 20,
-          left: 20,
-          background: "rgba(0,0,0,0.5)",
-          color: "white",
-          padding: "8px 12px",
-          borderRadius: "6px",
+          width: "100%",
+          height: "100%",
+          pointerEvents: "auto", // allow dragging for 360° video
         }}
-      >
-        👉 Click anywhere to start video
-      </div>
+      ></div>
     </div>
   );
 }
