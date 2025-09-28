@@ -19,6 +19,10 @@ export default function AetherDashboard() {
 
     router.push('/models')
   }
+    const handlemousenter3 = () => {
+
+    router.push('/nbl')
+  }
   return (
     <div className="relative z-10 flex flex-col container mx-auto px-3 py-8">
       {/* Header */}
@@ -131,7 +135,7 @@ export default function AetherDashboard() {
                 translateZ={20}
                 as="button"
                 className="w-full h-10 rounded-2xl bg-white text-black hover:bg-gray-100"
-                onClick={handlemousenter2}
+                onClick={handlemousenter3}
               >
                 Play With Simulator
               </CardItem>
