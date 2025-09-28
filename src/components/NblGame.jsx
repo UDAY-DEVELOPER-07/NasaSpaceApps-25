@@ -130,7 +130,7 @@ export default function NblGame() {
               {gameState === "playing" ? "Maintain neutral buoyancy and complete EVA tasks." : gameState === "won" ? "Mission Complete" : "Mission Failed"}
             </div>
           </div>
-          <div className="h-[calc(100%-3rem)] cursor-default">
+          <div className="h-[calc(100%-3rem)] W-[50%] cursor-default">
             <NblScene
               depth={depthMeter}
               trim={trim}

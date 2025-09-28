@@ -9,7 +9,7 @@ export default function StatsPanel({ oxygen, co2, battery, heartRate, missionTim
   );
 
   const ring = (label, value, color) => (
-    <div className="flex flex-col items-center px-2 py-1 rounded-md bg-white/5">
+    <div className="flex flex-col items-center px-1 py-1 rounded-md bg-white/5">
       <div className="w-20 h-20 rounded-full border-4 flex items-center justify-center" style={{ borderColor: color }}>
         <span className="text-base font-bold">{Math.round(value)}%</span>
       </div>
@@ -18,8 +18,8 @@ export default function StatsPanel({ oxygen, co2, battery, heartRate, missionTim
   );
 
   return (
-    <div className="p-4 rounded-xl text-white">
-      <div className="flex items-center justify-between gap-4 mb-3">
+    <div className="p-1 rounded-xl  text-white">
+      <div className="flex items-center justify-between gap-2 mb-3">
         {ring("Oxygen", oxygen, "#22c55e")}
         {ring("Battery", battery, "#38bdf8")}
         {ring("CO₂", 100 - Math.max(0, 100 - co2), "#ef4444")}
