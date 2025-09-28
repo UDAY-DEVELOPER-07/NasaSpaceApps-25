@@ -19,7 +19,7 @@
 
 # production
 /build
-*.glb
+# *.glb
 # misc
 .DS_Store
 *.pem

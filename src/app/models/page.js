@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CometCardDemo } from "@/components/CometCardDemo";
 
 const routes = [
-  { name: "Space Suit", path: "/spaceSuitZ2", img: "/images/spaceSuit.png" },
+  { name: "Space Suit", path: "/suits/space", img: "/images/spaceSuit.png" },
   { name: "ISS", path: "/iss", img: "/assets/img6.png" },
   { name: "Astronaut", path: "/astronaut", img: "/assets/img7.png" },
 ];
